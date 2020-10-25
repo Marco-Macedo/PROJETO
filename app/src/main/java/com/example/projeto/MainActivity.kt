@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun insert(view: View) {
+        myList.add(0, Place("Title XXX","DATA XXX", "Notes XXX"))
+        recycler_view.adapter?.notifyDataSetChanged()
+    }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
