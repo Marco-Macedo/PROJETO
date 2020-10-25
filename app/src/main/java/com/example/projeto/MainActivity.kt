@@ -48,13 +48,13 @@ class MainActivity : AppCompatActivity() {
         // Handle item selection
         return when(item.itemId) {
             R.id.insert -> {
-                /*Toast.makeText(this, "Inserir", Toast.LENGTH_SHORT).show()*/
+                Toast.makeText(this, "Inserir", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, Inserir::class.java).apply {}
                 startActivity(intent)
                 true
             }
             R.id.remove -> {
-                /*Toast.makeText(this, "Remover", Toast.LENGTH_SHORT ).show()*/
+                Toast.makeText(this, "Remover", Toast.LENGTH_SHORT ).show()
                 val intent = Intent(this, Remover::class.java).apply {}
                 startActivity(intent)
                 true
