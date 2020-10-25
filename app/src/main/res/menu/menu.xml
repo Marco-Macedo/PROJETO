@@ -6,9 +6,9 @@
         app:showAsAction="always">
 
         <menu>
-            <item android:id="@+id/create_new"
+            <item android:id="@+id/insert"
                 android:title="Inserir"/>
-            <item android:id="@+id/open"
+            <item android:id="@+id/remove"
                 android:title="Remover"
                 />
             <item android:id="@+id/edit"
