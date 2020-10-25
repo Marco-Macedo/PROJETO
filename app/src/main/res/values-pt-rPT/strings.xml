@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PROJETO</string>
+    <string name="Edit">Editar</string>
+    <string name="Remove">Remover</string>
+    <string name="Insert">Inserir</string>
+    <string name="Options">Opções</string>
+</resources>

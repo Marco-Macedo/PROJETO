@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/file"
-        android:title="Opções"
+        android:title="@string/Options"
         app:showAsAction="always">
 
         <menu>
             <item android:id="@+id/insert"
-                android:title="Inserir"
+                android:title="@string/Insert"
                 />
             <item android:id="@+id/remove"
-                android:title="Remover"
+                android:title="@string/Remove"
                 />
             <item android:id="@+id/edit"
-                android:title="Editar"/>
+                android:title="@string/Edit"/>
         </menu>
     </item>
 
