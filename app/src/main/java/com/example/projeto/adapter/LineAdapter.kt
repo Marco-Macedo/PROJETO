@@ -27,15 +27,15 @@ class LineAdapter(val list: ArrayList<Place>):RecyclerView.Adapter<LineViewHolde
     override fun onBindViewHolder(holder: LineViewHolder, position: Int) {
         val currentPlace = list[position]
 
-        holder.name.text = currentPlace.name
-        holder.capital.text = currentPlace.capital
-        holder.nhabitants.text = currentPlace.habitants.toString()
+        holder.name.text = currentPlace.title
+        holder.capital.text = currentPlace.notes
+        holder.nhabitants.text = currentPlace.date.toString()
     }
 
 }
 
 class LineViewHolder(itemView: View)  : RecyclerView.ViewHolder(itemView){
-    val name = itemView.name
-    val capital = itemView.capital
-    var nhabitants = itemView.habitants
+    val name = itemView.title
+    val capital = itemView.notes
+    var nhabitants = itemView.date
 }
