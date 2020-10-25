@@ -2,6 +2,8 @@ package com.example.projeto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import com.example.projeto.dataclasses.Place
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,5 +34,10 @@ class MainActivity : AppCompatActivity() {
     fun insert(view: View) {
         myList.add(0, Place("Title XXX","DATA XXX", "Notes XXX"))
         recycler_view.adapter?.notifyDataSetChanged()
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
     }
 }
