@@ -7,13 +7,13 @@
 
         <menu>
             <item android:id="@+id/insert"
-                android:title="Inserir"/>
+                android:title="Inserir"
+                />
             <item android:id="@+id/remove"
                 android:title="Remover"
                 />
             <item android:id="@+id/edit"
-                android:title="Editar"
-                />
+                android:title="Editar"/>
         </menu>
     </item>
 
