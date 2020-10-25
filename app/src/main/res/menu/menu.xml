@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/file"
+        android:title="Opções"
+        app:showAsAction="always">
+
+        <menu>
+            <item android:id="@+id/create_new"
+                android:title="Inserir"/>
+            <item android:id="@+id/open"
+                android:title="Remover"
+                />
+            <item android:id="@+id/edit"
+                android:title="Editar"
+                />
+        </menu>
+    </item>
+
+
+</menu>
