@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PROJETO</string>
-    <string name="Edit">Edit</string>
-    <string name="Remove">Remove</string>
-    <string name="Insert">Insert</string>
-    <string name="Options">Options</string>
+    <string name="Edit" translatable="false">Edit</string>
+    <string name="Remove" translatable="false">Remove</string>
+    <string name="Insert" translatable="false">Insert</string>
+    <string name="Options" translatable="false">Options</string>
 </resources>
