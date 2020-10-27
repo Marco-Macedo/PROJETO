@@ -8,15 +8,25 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.projeto.adapters.TitleAdapter
+import com.example.projeto.viewModel.TitleViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var titleViewModel: TitleViewModel
+    private val newWordActivityRequestCode = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+    // recycler view
+        val recyclerView = findViewById<RecyclerView.Recycler>(R.id.recyclerview)
+        val adapter = TitleAdapter(this)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     /*fun inserir(view: View){
@@ -24,6 +34,15 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }*/
+
+
+
+
+
+
+
+
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
