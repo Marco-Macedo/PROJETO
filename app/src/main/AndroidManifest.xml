@@ -12,7 +12,6 @@
         <activity android:name=".AddTitle"></activity>
         <activity android:name=".Remover" />
         <activity android:name=".Editar" />
-        <activity android:name=".Inserir" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -16,6 +16,7 @@ import com.example.projeto.entities.Title
 import com.example.projeto.viewModel.TitleViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.recyclerline.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,10 +53,15 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(AddTitle.EXTRA_REPLY)?.let {
-                val title = Title(title = it, notes = "Gym", date = "27/10/2020")
-                titleViewModel.insert(title)
+                val ptitle = data?.getStringExtra(AddTitle.EXTRA_REPLY_TITLE)
+            val pnotes = data?.getStringExtra(AddTitle.EXTRA_REPLY_NOTES)
+            val pdate = data?.getStringExtra(AddTitle.EXTRA_REPLY_DATE)
+
+            if(ptitle!= null && pnotes != null && pdate != null) {
+                val nota = Title(title = ptitle, notes = pnotes, date = pdate)
+                titleViewModel.insert(nota)
             }
+
         } else {
             Toast.makeText(
                 applicationContext,
@@ -82,7 +88,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
         return true
@@ -105,5 +111,5 @@ class MainActivity : AppCompatActivity() {
 
             else -> super.onOptionsItemSelected(item)
         }
-    }
+    }*/
 }

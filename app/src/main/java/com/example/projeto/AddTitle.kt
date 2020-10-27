@@ -10,28 +10,34 @@ import android.widget.EditText
 
 class AddTitle : AppCompatActivity() {
 
-    private lateinit var editWordView: EditText
+    private lateinit var titleText: EditText
+    private lateinit var notesText: EditText
+    private lateinit var dateText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_title)
 
-        editWordView = findViewById(R.id.edit_word)
-
+        titleText = findViewById(R.id.title)
+        notesText = findViewById(R.id.notes)
+        dateText = findViewById(R.id.date)
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()
-            if (TextUtils.isEmpty(editWordView.text)) {
+            if (TextUtils.isEmpty(titleText.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
-                val word = editWordView.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, word)
+                replyIntent.putExtra(EXTRA_REPLY_TITLE, titleText.text).toString()
+                replyIntent.putExtra(EXTRA_REPLY_NOTES, notesText.text.toString())
+                replyIntent.putExtra(EXTRA_REPLY_DATE, dateText.text.toString())
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
         }
     }
     companion object {
-        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
+        const val EXTRA_REPLY_TITLE = "com.example.android.title"
+        const val EXTRA_REPLY_NOTES = "com.example.android.notes"
+        const val EXTRA_REPLY_DATE = "com.example.android.date"
     }
 }
