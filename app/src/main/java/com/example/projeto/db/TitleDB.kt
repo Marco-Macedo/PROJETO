@@ -56,7 +56,7 @@ public abstract class TitleDB : RoomDatabase() {
                     "titles_database",
                 )
                     //estratégia de destrução
-                    //.fallbacktoDestructiveMigration()
+                    .fallbackToDestructiveMigration()
                     .addCallback(WordDataBaseCallback(scope))
                     .build()
                 INSTANCE = instance

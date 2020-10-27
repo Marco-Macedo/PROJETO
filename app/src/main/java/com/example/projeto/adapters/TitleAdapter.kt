@@ -14,24 +14,24 @@ class TitleAdapter internal constructor(
 ) : RecyclerView.Adapter<TitleAdapter.TitleViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var words = emptyList<Title>() // Cached copy of words
+    private var titles = emptyList<Title>() // Cached copy of words
 
-    inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val wordItemView: TextView = itemView.findViewById(R.id.textView)
+    inner class TitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val titleItemView: TextView = itemView.findViewById(R.id.textView)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TitleViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerline, parent, false)
-        return WordViewHolder(itemView)
+        return TitleViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TitleViewHolder, position: Int) {
         val current = titles[position]
         holder.titleItemView.text = current.title
     }
 
-    internal fun setWords(words: List<Title>) {
-        this.titles = words
+    internal fun setTitles(titles: List<Title>) {
+        this.titles = titles
         notifyDataSetChanged()
     }
 
