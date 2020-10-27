@@ -8,7 +8,6 @@ import java.time.format.DateTimeFormatterBuilder
 @Entity(tableName = "title_table")
 
 class Title(
-    // Int? = null so when creating instance id has not to be passed as argument
 
     @PrimaryKey(autoGenerate = true) val id: Int? = null,
     @ColumnInfo(name = "title") val title: String,
