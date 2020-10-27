@@ -12,5 +12,6 @@ class TitleRepository(private val titleDao: TitleDao) {
 
     suspend fun insert(title: Title) {
         titleDao.insert(title)
+
     }
 }
