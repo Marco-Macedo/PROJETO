@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PROJETO">
-        <activity android:name=".Remover"></activity>
+        <activity android:name=".AddTitle"></activity>
+        <activity android:name=".Remover" />
         <activity android:name=".Editar" />
         <activity android:name=".Inserir" />
         <activity android:name=".MainActivity">
