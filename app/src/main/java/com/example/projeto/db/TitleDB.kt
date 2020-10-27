@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(Title::class), version = 4, exportSchema = false)
+@Database(entities = arrayOf(Title::class), version = 5, exportSchema = false)
 public abstract class TitleDB : RoomDatabase() {
 
     abstract fun titleDao(): TitleDao
@@ -24,6 +24,15 @@ public abstract class TitleDB : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     var titleDao = database.titleDao()
+
+                    // Delete all content here.
+                    titleDao.deleteAll()
+
+                    //Add sample words
+                    var title = Title(1,"Segunda-Feira","Ir ao Ginásio","27/10/2020")
+                    titleDao.insert(title)
+                    title = Title(2,"Terça-Feira","Ir às compras","28/10/2020")
+                    titleDao.insert(title)
                 }
             }
         }
