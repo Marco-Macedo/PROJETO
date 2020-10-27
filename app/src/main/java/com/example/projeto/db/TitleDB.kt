@@ -19,6 +19,7 @@ public abstract class TitleDB : RoomDatabase() {
     private class WordDataBaseCallback(
         private val scope: CoroutineScope
     ) : RoomDatabase.Callback() {
+
         override fun onOpen(db: SupportSQLiteDatabase) {
             super.onOpen(db)
             INSTANCE?.let { database ->
