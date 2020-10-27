@@ -6,30 +6,15 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
-import com.example.projeto.dataclasses.Place
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.projeto.adapter.LineAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var myList: ArrayList<Place>
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        myList = ArrayList<Place>()
-
-
-        for (i in 0 until 500) {
-            myList.add(Place( "Country $i", "20/10/2020 $i", "Capital $i"))
-        }
-        recycler_view.adapter = LineAdapter(myList)
-        recycler_view.layoutManager = LinearLayoutManager(this)
-        //recycler_view.setHasFixedSize(true)
 
 
     }
@@ -47,12 +32,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
         return when(item.itemId) {
-            R.id.insert -> {
-                Toast.makeText(this, "@string/Insert", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, Inserir::class.java).apply {}
-                startActivity(intent)
-                true
-            }
             R.id.remove -> {
                 Toast.makeText(this, "@string/Remove", Toast.LENGTH_SHORT ).show()
                 val intent = Intent(this, Remover::class.java).apply {}

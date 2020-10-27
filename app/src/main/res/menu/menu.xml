@@ -6,9 +6,6 @@
         app:showAsAction="always">
 
         <menu>
-            <item android:id="@+id/insert"
-                android:title="@string/Insert"
-                />
             <item android:id="@+id/remove"
                 android:title="@string/Remove"
                 />
