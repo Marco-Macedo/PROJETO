@@ -27,7 +27,7 @@ public abstract class TitleDB : RoomDatabase() {
                     var titleDao = database.titleDao()
 
                     // Delete all content here.
-                    titleDao.deleteAll()
+                    //titleDao.deleteAll()
 
                     //Add sample words
                     var title = Title(1,"Segunda-Feira","Ir ao Ginásio","27/10/2020")

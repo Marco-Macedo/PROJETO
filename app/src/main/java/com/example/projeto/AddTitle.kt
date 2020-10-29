@@ -18,9 +18,11 @@ class AddTitle : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_title)
 
-        titleText = findViewById(R.id.title)
-        notesText = findViewById(R.id.notes)
-        dateText = findViewById(R.id.date)
+        titleText = findViewById(R.id.titulo)
+        notesText = findViewById(R.id.texto)
+        dateText = findViewById(R.id.data)
+
+
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()

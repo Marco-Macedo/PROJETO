@@ -9,15 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projeto.R
 import com.example.projeto.entities.Title
 
-class TitleAdapter internal constructor(
-    context: Context
-) : RecyclerView.Adapter<TitleAdapter.TitleViewHolder>() {
+class TitleAdapter internal constructor(context: Context) : RecyclerView.Adapter<TitleAdapter.TitleViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var titles = emptyList<Title>() // Cached copy of words
+    private var titles =  emptyList<Title>() // Cached copy of words
 
     inner class TitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val titleItemView: TextView = itemView.findViewById(R.id.textView)
+        val titleItemView: TextView = itemView.findViewById(R.id.titulo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TitleViewHolder {
@@ -27,7 +25,7 @@ class TitleAdapter internal constructor(
 
     override fun onBindViewHolder(holder: TitleViewHolder, position: Int) {
         val current = titles[position]
-        holder.titleItemView.text = current.title
+        holder.titleItemView.text = current.titulo
     }
 
     internal fun setTitles(titles: List<Title>) {

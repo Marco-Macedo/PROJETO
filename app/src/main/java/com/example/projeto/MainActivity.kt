@@ -53,12 +53,12 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
-                val ptitle = data?.getStringExtra(AddTitle.EXTRA_REPLY_TITLE)
+            val ptitle = data?.getStringExtra(AddTitle.EXTRA_REPLY_TITLE)
             val pnotes = data?.getStringExtra(AddTitle.EXTRA_REPLY_NOTES)
             val pdate = data?.getStringExtra(AddTitle.EXTRA_REPLY_DATE)
 
             if(ptitle!= null && pnotes != null && pdate != null) {
-                val nota = Title(title = ptitle, notes = pnotes, date = pdate)
+                val nota = Title(titulo = ptitle, texto = pnotes, data = pdate)
                 titleViewModel.insert(nota)
             }
 
