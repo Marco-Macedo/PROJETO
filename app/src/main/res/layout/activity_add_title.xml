@@ -10,7 +10,8 @@
         android:layout_height="78dp"
         android:fontFamily="sans-serif-light"
         android:inputType="textAutoComplete"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:text="Title"/>
 
     <EditText
         android:id="@+id/notes"
@@ -18,7 +19,8 @@
         android:layout_height="62dp"
         android:fontFamily="sans-serif-light"
         android:inputType="textAutoComplete"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:text="Note"/>
 
     <EditText
         android:id="@+id/date"
@@ -26,13 +28,14 @@
         android:layout_height="64dp"
         android:fontFamily="sans-serif-light"
         android:inputType="textAutoComplete"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:text="Date"/>
 
     <Button
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        android:text="Save" />
+        android:text="Confirmar Inserção" />
 
 </LinearLayout>
