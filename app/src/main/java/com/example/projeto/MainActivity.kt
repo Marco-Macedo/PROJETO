@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             titles?.let { adapter.setTitles(it) }
         })
 
+
         //VIEW MODEL
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
