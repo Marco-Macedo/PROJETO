@@ -54,9 +54,6 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, newWordActivityRequestCode)
 
         }
-
-
-
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -80,24 +77,6 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG).show()
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-    /*fun inserir(view: View){
-        val intent = Intent(this, Inserir::class.java).apply {
-        }
-        startActivity(intent)
-    }*/
-
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
