@@ -9,9 +9,9 @@ import java.time.format.DateTimeFormatterBuilder
 
 class Title(
 
-    @PrimaryKey(autoGenerate = true) val id: Int? = null,
-    @ColumnInfo(name = "title") val titulo: String,
-    @ColumnInfo(name = "notes") val texto: String,
-    @ColumnInfo(name = "date") val data: String
+        @PrimaryKey(autoGenerate = true) val id:Int? = null,
+        @ColumnInfo(name = "title") val title: String,
+        @ColumnInfo(name="notes") val notes:String,
+        @ColumnInfo(name ="date") val date: String
 
 )

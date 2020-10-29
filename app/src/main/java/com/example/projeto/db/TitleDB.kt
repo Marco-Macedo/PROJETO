@@ -11,15 +11,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(Title::class), version = 5, exportSchema = false)
+@Database(entities = arrayOf(Title::class), version = 6, exportSchema = false)
 public abstract class TitleDB : RoomDatabase() {
 
     abstract fun titleDao(): TitleDao
 
     private class WordDataBaseCallback(
-        private val scope: CoroutineScope
+            private val scope: CoroutineScope
     ) : RoomDatabase.Callback() {
-
         override fun onOpen(db: SupportSQLiteDatabase) {
             super.onOpen(db)
             INSTANCE?.let { database ->
@@ -27,13 +26,13 @@ public abstract class TitleDB : RoomDatabase() {
                     var titleDao = database.titleDao()
 
                     // Delete all content here.
-                    //titleDao.deleteAll()
+                    // titleDao.deleteAll()
 
                     //Add sample words
-                    var title = Title(1,"Segunda-Feira","Ir ao Ginásio","27/10/2020")
-                    titleDao.insert(title)
-                    title = Title(2,"Terça-Feira","Ir às compras","28/10/2020")
-                    titleDao.insert(title)
+                    //var title = Title(1,"Segunda-Feira","Ir ao Ginásio","27/10/2020")
+                    //titleDao.insert(title)
+                    //title = Title(2,"Terça-Feira","Ir às compras","28/10/2020")
+                    //titleDao.insert(title)
                 }
             }
         }
@@ -52,14 +51,14 @@ public abstract class TitleDB : RoomDatabase() {
             }
             synchronized(this) {
                 val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    TitleDB::class.java,
-                    "titles_database",
+                        context.applicationContext,
+                        TitleDB::class.java,
+                        "titles_database",
                 )
-                    //estratégia de destrução
-                    .fallbackToDestructiveMigration()
-                    .addCallback(WordDataBaseCallback(scope))
-                    .build()
+                        //estratégia de destrução
+                        .fallbackToDestructiveMigration()
+                        .addCallback(WordDataBaseCallback(scope))
+                        .build()
                 INSTANCE = instance
                 return instance
             }

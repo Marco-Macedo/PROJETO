@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,56 +21,65 @@ import kotlinx.android.synthetic.main.recyclerline.*
 
 class MainActivity : AppCompatActivity() {
 
+
     private lateinit var titleViewModel: TitleViewModel
     private val newWordActivityRequestCode = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    // recycler view
+
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         val adapter = TitleAdapter(this)
+
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // view model
-        titleViewModel = ViewModelProvider(this).get(TitleViewModel::class.java)
-        titleViewModel.allTitles.observe(this, { titles ->
+
+        titleViewModel=ViewModelProvider(this).get(TitleViewModel::class.java)
+        titleViewModel.allTitles.observe(this, Observer { titles ->
             // Update the cached copy of the words in the adapter.
             titles?.let { adapter.setTitles(it) }
         })
 
-        //Fab
+        //VIEW MODEL
+
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
-            val intent = Intent( this@MainActivity, AddTitle::class.java)
+            val intent = Intent(this@MainActivity, AddTitle::class.java)
             startActivityForResult(intent, newWordActivityRequestCode)
+
         }
 
-    }
 
+
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
+
             val ptitle = data?.getStringExtra(AddTitle.EXTRA_REPLY_TITLE)
-            val pnotes = data?.getStringExtra(AddTitle.EXTRA_REPLY_NOTES)
+            val pnote = data?.getStringExtra(AddTitle.EXTRA_REPLY_NOTES)
             val pdate = data?.getStringExtra(AddTitle.EXTRA_REPLY_DATE)
 
-            if(ptitle!= null && pnotes != null && pdate != null) {
-                val nota = Title(titulo = ptitle, texto = pnotes, data = pdate)
-                titleViewModel.insert(nota)
+
+            if (ptitle != null && pnote != null && pdate != null) {
+                val note = Title(title = ptitle, notes = pnote, date = pdate)
+                titleViewModel.insert(note)
             }
-
-        } else {
+        }
+        else {
             Toast.makeText(
-                applicationContext,
-                "Titulo vazio: não inserido",
-                Toast.LENGTH_LONG).show()
-
+                    applicationContext,
+                    "Titulo vazio!",
+                    Toast.LENGTH_LONG).show()
         }
     }
+
 
 
 

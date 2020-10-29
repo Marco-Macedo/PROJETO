@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.projeto.dao.TitleDao
 import com.example.projeto.entities.Title
 
+
 class TitleRepository(private val titleDao: TitleDao) {
 
     // Room executes all queries on a separate thread.
