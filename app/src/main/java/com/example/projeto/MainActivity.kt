@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.recyclerline.*
 class MainActivity : AppCompatActivity() {
 
 
+
     private lateinit var titleViewModel: TitleViewModel
     private val newWordActivityRequestCode = 1
 
