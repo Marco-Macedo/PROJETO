@@ -100,7 +100,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
-
+            R.id.remove_all -> {
+                Toast.makeText(this, "Notas Limpas...", Toast.LENGTH_SHORT ).show()
+                titleViewModel.deleteAll()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

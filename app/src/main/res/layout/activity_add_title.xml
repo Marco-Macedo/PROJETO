@@ -11,7 +11,7 @@
         android:fontFamily="sans-serif-light"
         android:inputType="textAutoComplete"
         android:textSize="18sp"
-        android:text="Title"/>
+        />
 
     <EditText
         android:id="@+id/notes"
@@ -20,7 +20,7 @@
         android:fontFamily="sans-serif-light"
         android:inputType="textAutoComplete"
         android:textSize="18sp"
-        android:text="Note"/>
+        />
 
     <EditText
         android:id="@+id/date"
@@ -29,7 +29,7 @@
         android:fontFamily="sans-serif-light"
         android:inputType="textAutoComplete"
         android:textSize="18sp"
-        android:text="Date"/>
+        />
 
     <Button
         android:id="@+id/button_save"

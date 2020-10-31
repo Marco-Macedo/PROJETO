@@ -8,7 +8,7 @@ import androidx.room.Query
 import com.example.projeto.entities.Title
 
 @Dao
-interface TitleDao {
+interface  TitleDao {
     @Query("SELECT * from title_table ORDER BY title ASC")
     fun getAlphabetizedTitles(): LiveData<List<Title>>
 
