@@ -12,7 +12,7 @@
             <item android:id="@+id/edit"
                 android:title="@string/Edit"/>
             <item android:id="@+id/remove_all"
-                android:title="Remove All"/>
+                android:title="@string/Remove_all"/>
         </menu>
     </item>
 
