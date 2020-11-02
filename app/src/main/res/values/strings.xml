@@ -4,4 +4,5 @@
     <string name="Remove" translatable="false">Remove</string>
     <string name="Insert" translatable="false">Insert</string>
     <string name="Options" translatable="false">Options</string>
+    <string name="Remove_All" translatable="false">Remove All</string>
 </resources>

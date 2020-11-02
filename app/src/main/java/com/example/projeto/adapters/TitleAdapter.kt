@@ -38,6 +38,7 @@ class TitleAdapter internal constructor(
         holder.TextView2.text=current.notes
         holder.TextView3.text = current.date
 
+
     }
 
     internal fun setTitles(titles: List<Title>) {

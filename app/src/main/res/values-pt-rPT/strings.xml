@@ -5,4 +5,5 @@
     <string name="Remove">Remover</string>
     <string name="Insert">Inserir</string>
     <string name="Options">Opções</string>
+    <string name="Remove_All" translatable="false">Remover Tudo</string>
 </resources>
