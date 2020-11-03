@@ -27,6 +27,20 @@
                 android:title="@string/View_Saturday"/>
             <item android:id="@+id/View_Sunday"
                 android:title="@string/View_Sunday"/>
+            <item android:id="@+id/Remove_Monday"
+                android:title="@string/Delete_Monday"/>
+            <item android:id="@+id/Remove_Thursday"
+                android:title="@string/Delete_Thursday"/>
+            <item android:id="@+id/Remove_Wednesday"
+                android:title="@string/Delete_Wednesday"/>
+            <item android:id="@+id/Remove_Tuesday"
+                android:title="@string/Delete_Tuesday"/>
+            <item android:id="@+id/Remove_Friday"
+                android:title="@string/Delete_Friday"/>
+            <item android:id="@+id/Remove_Saturday"
+                android:title="@string/Delete_Saturday"/>
+            <item android:id="@+id/Remove_Sunday"
+                android:title="@string/Delete_Sunday"/>
         </menu>
     </item>
 

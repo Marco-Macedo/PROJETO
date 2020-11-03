@@ -20,4 +20,7 @@ interface  TitleDao {
 
     @Query("SELECT * FROM title_table WHERE title == :title")
     fun getNotesByTitle(title: String): LiveData<List<Title>>
+
+    @Query("DELETE FROM title_table where title == :title")
+    suspend fun deleteByTitle(title: String)
 }

@@ -12,4 +12,11 @@
     <string name="View_Friday" translatable="false">View Friday</string>
     <string name="View_Saturday" translatable="false">View Saturday</string>
     <string name="View_Sunday" translatable="false">View Sunday</string>
+    <string name="Delete_Monday" translatable="false">Delete Monday</string>
+    <string name="Delete_Thursday" translatable="false">Delete Thursday</string>
+    <string name="Delete_Wednesday" translatable="false">Delete Wednesday</string>
+    <string name="Delete_Tuesday" translatable="false">Delete Tuesday</string>
+    <string name="Delete_Friday" translatable="false">Delete Friday</string>
+    <string name="Delete_Saturday" translatable="false">Delete Saturday</string>
+    <string name="Delete_Sunday" translatable="false">Delete Sunday</string>
 </resources>

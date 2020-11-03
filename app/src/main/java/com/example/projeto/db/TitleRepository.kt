@@ -22,4 +22,8 @@ class TitleRepository(private val titleDao: TitleDao) {
     suspend fun deleteAll(){
         titleDao.deleteAll()
     }
+
+    suspend fun deleteByTitle(title: String){
+        titleDao.deleteByTitle(title)
+    }
 }

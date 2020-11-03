@@ -13,4 +13,11 @@
     <string name="View_Friday">Ver Sextas</string>
     <string name="View_Saturday">Ver Sábados</string>
     <string name="View_Sunday">Ver domingos</string>
+    <string name="Delete_Monday">Remover Segundas</string>
+    <string name="Delete_Thursday">Remover Terças</string>
+    <string name="Delete_Wednesday">Remover Quartas</string>
+    <string name="Delete_Tuesday">Remover Quintas</string>
+    <string name="Delete_Friday">Remover Sextas</string>
+    <string name="Delete_Saturday">Remover Sábados</string>
+    <string name="Delete_Sunday">Remover Domingos</string>
 </resources>

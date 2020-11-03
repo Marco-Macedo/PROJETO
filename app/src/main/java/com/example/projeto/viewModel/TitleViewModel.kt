@@ -40,4 +40,8 @@ class TitleViewModel(application: Application) : AndroidViewModel(application) {
     fun getNotesByTitle(title: String): LiveData<List<Title>> {
         return repository.getNotesByTitle(title)
     }
+    // delete by title
+    fun deleteByTitle(title: String) = viewModelScope.launch(Dispatchers.IO) {
+        repository.deleteByTitle(title)
+    }
 }

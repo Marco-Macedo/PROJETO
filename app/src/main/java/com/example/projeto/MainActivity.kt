@@ -215,6 +215,34 @@ class MainActivity : AppCompatActivity() {
 
                 true
             }
+            R.id.Remove_Monday -> {
+                titleViewModel.deleteByTitle("Segunda-Feira")
+                true
+            }
+            R.id.Remove_Thursday -> {
+                titleViewModel.deleteByTitle("Terça-Feira")
+                true
+            }
+            R.id.Remove_Wednesday -> {
+                titleViewModel.deleteByTitle("Quarta-Feira")
+                true
+            }
+            R.id.Remove_Tuesday -> {
+                titleViewModel.deleteByTitle("Quinta-Feira")
+                true
+            }
+            R.id.Remove_Friday -> {
+                titleViewModel.deleteByTitle("Sexta-Feira")
+                true
+            }
+            R.id.Remove_Saturday -> {
+                titleViewModel.deleteByTitle("Sábado")
+                true
+            }
+            R.id.Remove_Sunday -> {
+                titleViewModel.deleteByTitle("Domingo")
+                true
+            }
 
             else -> super.onOptionsItemSelected(item)
         }
