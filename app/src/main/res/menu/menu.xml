@@ -7,10 +7,11 @@
 
         <menu>
             <item android:id="@+id/remove"
-                android:title="@string/Remove"
-                />
+                android:title="@string/Remove" />
             <item android:id="@+id/edit"
                 android:title="@string/Edit"/>
+            <item android:id="@+id/View_All"
+                android:title="@string/View_All" />
             <item android:id="@+id/remove_all"
                 android:title="@string/Remove_all"/>
             <item android:id="@+id/View_Monday"

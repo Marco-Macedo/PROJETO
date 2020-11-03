@@ -243,7 +243,22 @@ class MainActivity : AppCompatActivity() {
                 titleViewModel.deleteByTitle("Domingo")
                 true
             }
+            R.id.View_All -> {
+                // recycler view
+                val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+                val adapter = TitleAdapter(this)
+                recyclerView.adapter = adapter
+                recyclerView.layoutManager = LinearLayoutManager(this)
 
+                // view model
+                titleViewModel = ViewModelProvider(this).get(TitleViewModel::class.java)
+                titleViewModel.allTitles.observe(this, Observer { titles ->
+                    // Update the cached copy of the words in the adapter.
+                    titles?.let { adapter.setTitles(it) }
+                })
+
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

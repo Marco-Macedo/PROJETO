@@ -22,4 +22,5 @@
     <string name="Title" translatable="false">Title</string>
     <string name="Note" translatable="false">Note</string>
     <string name="Date" translatable="false">Date</string>
+    <string name="View_All" translatable="false">View All</string>
 </resources>
