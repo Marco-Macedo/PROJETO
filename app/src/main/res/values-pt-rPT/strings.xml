@@ -20,4 +20,7 @@
     <string name="Delete_Friday">Remover Sextas</string>
     <string name="Delete_Saturday">Remover Sábados</string>
     <string name="Delete_Sunday">Remover Domingos</string>
+    <string name="Title">Título</string>
+    <string name="Note">Nota</string>
+    <string name="Date">Data</string>
 </resources>

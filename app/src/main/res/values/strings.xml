@@ -19,4 +19,7 @@
     <string name="Delete_Friday" translatable="false">Delete Friday</string>
     <string name="Delete_Saturday" translatable="false">Delete Saturday</string>
     <string name="Delete_Sunday" translatable="false">Delete Sunday</string>
+    <string name="Title" translatable="false">Title</string>
+    <string name="Note" translatable="false">Note</string>
+    <string name="Date" translatable="false">Date</string>
 </resources>

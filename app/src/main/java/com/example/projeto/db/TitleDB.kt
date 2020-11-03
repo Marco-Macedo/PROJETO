@@ -26,10 +26,10 @@ public abstract class TitleDB : RoomDatabase() {
                     var titleDao = database.titleDao()
 
                     // Delete all content here.
-                     //titleDao.deleteAll()
+                     titleDao.deleteAll()
 
                     //Add sample words
-                    /*var title = Title(1,"Segunda-Feira","Ir ao Ginásio","27/10/2020")
+                    var title = Title(1,"Segunda-Feira","Ir ao Ginásio","27/10/2020")
                     titleDao.insert(title)
                     var title1 = Title(2,"Terça-Feira","Lavar a cozinha","28/10/2020")
                     titleDao.insert(title1)
@@ -56,7 +56,7 @@ public abstract class TitleDB : RoomDatabase() {
                     var title12 = Title(13,"Sábado","Estudar","30/8/2020")
                     titleDao.insert(title12)
                     var title13 = Title(14,"Domingo","Ir ao Ginásio","14/7/2020")
-                    titleDao.insert(title13)*/
+                    titleDao.insert(title13)
                 }
             }
         }
