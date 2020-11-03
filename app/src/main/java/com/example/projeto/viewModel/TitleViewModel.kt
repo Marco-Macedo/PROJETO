@@ -36,4 +36,8 @@ class TitleViewModel(application: Application) : AndroidViewModel(application) {
     fun deleteAll() = viewModelScope.launch(Dispatchers.IO){
     repository.deleteAll()
     }
+
+    fun getNotesByTitle(title: String): LiveData<List<Title>> {
+        return repository.getNotesByTitle(title)
+    }
 }

@@ -6,4 +6,11 @@
     <string name="Insert">Inserir</string>
     <string name="Options">Opções</string>
     <string name="Remove_all" translatable="false">Remover tudo</string>
+    <string name="View_Monday">Ver Segundas</string>
+    <string name="View_Thursday">Ver Terças</string>
+    <string name="View_Wednesday">Ver Quartas</string>
+    <string name="View_Tuesday">Ver Quintas</string>
+    <string name="View_Friday">Ver Sextas</string>
+    <string name="View_Saturday">Ver Sábados</string>
+    <string name="View_Sunday">Ver domingos</string>
 </resources>

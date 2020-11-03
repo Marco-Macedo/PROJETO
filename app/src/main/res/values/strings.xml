@@ -5,4 +5,11 @@
     <string name="Insert" translatable="false">Insert</string>
     <string name="Options" translatable="false">Options</string>
     <string name="Remove_all" translatable="false">Remove All</string>
+    <string name="View_Monday" translatable="false">View Monday</string>
+    <string name="View_Thursday" translatable="false">View Thursday</string>
+    <string name="View_Wednesday" translatable="false">View Wednesday</string>
+    <string name="View_Tuesday" translatable="false">View Tuesday</string>
+    <string name="View_Friday" translatable="false">View Friday</string>
+    <string name="View_Saturday" translatable="false">View Saturday</string>
+    <string name="View_Sunday" translatable="false">View Sunday</string>
 </resources>

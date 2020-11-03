@@ -17,4 +17,7 @@ interface  TitleDao {
 
     @Query("DELETE FROM title_table")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM title_table WHERE title == :title")
+    fun getNotesByTitle(title: String): LiveData<List<Title>>
 }
