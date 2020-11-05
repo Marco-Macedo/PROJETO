@@ -29,21 +29,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         val adapter = TitleAdapter(this)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-
         titleViewModel=ViewModelProvider(this).get(TitleViewModel::class.java)
         titleViewModel.allTitles.observe(this, Observer { titles ->
             // Update the cached copy of the words in the adapter.
             titles?.let { adapter.setTitles(it) }
         })
-
 
         //VIEW MODEL
 
