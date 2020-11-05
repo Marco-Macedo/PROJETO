@@ -19,4 +19,7 @@
     <string name="Remove_Friday" translatable="false">Remover Sextas</string>
     <string name="Remove_Saturday" translatable="false">Remover Sábados</string>
     <string name="Remove_Sunday" translatable="false">Remover Domingos</string>
+    <string name="Title">Título</string>
+    <string name="Note">Nota</string>
+    <string name="Date">Data</string>
 </resources>

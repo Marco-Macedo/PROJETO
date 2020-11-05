@@ -23,4 +23,5 @@ interface  TitleDao {
 
     @Query("DELETE FROM title_table where title == :title")
     suspend fun deleteByTitle(title: String)
+
 }

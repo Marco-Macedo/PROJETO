@@ -36,12 +36,12 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="408dp"
-        android:layout_height="164dp"
+        android:layout_width="430dp"
+        android:layout_height="184dp"
         android:layout_marginBottom="564dp"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerview"
         app:srcCompat="@drawable/screenshot_2"
-        tools:layout_editor_absoluteX="2dp" />
+        tools:layout_editor_absoluteX="-14dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
