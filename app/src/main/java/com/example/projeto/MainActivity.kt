@@ -82,18 +82,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
         return when(item.itemId) {
-            R.id.remove -> {
 
-                val intent = Intent(this, RemoveTitle::class.java).apply {}
-                startActivity(intent)
-                true
-            }
-            R.id.edit -> {
-                Toast.makeText(this, "@string/Edit", Toast.LENGTH_LONG).show()
-                val intent = Intent(this, EditTitle::class.java).apply {}
-                startActivity(intent)
-                true
-            }
             R.id.remove_all -> {
                 Toast.makeText(this, "Notas Limpas...", Toast.LENGTH_SHORT ).show()
                 titleViewModel.deleteAll()

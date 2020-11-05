@@ -5,4 +5,18 @@
     <string name="Remove">Remover</string>
     <string name="Insert">Inserir</string>
     <string name="Options">Opções</string>
+    <string name="View_Monday" translatable="false">Ver Segundas</string>
+    <string name="View_Thursday" translatable="false">Ver Terças</string>
+    <string name="View_Wednesday" translatable="false">Ver Quartas</string>
+    <string name="View_Tuesday" translatable="false">Ver Quintas</string>
+    <string name="View_Friday" translatable="false">Ver Sextas</string>
+    <string name="View_Saturday" translatable="false">Ver Sábados</string>
+    <string name="View_Sunday" translatable="false">Ver Domingos</string>
+    <string name="Remove_Monday" translatable="false">Remover Segundas</string>
+    <string name="Remove_Thursday" translatable="false">Remover Terças</string>
+    <string name="Remove_Wednesday" translatable="false">Remover Quartas</string>
+    <string name="Remove_Tuesday" translatable="false">Remover Quintas</string>
+    <string name="Remove_Friday" translatable="false">Remover Sextas</string>
+    <string name="Remove_Saturday" translatable="false">Remover Sábados</string>
+    <string name="Remove_Sunday" translatable="false">Remover Domingos</string>
 </resources>
