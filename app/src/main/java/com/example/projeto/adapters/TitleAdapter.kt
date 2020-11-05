@@ -11,7 +11,8 @@ import com.example.projeto.entities.Title
 import kotlinx.android.synthetic.main.recyclerline.view.*
 
 class TitleAdapter internal constructor(
-        context: Context
+        context: Context,
+        private val listener: (Title) -> Unit
 ) : RecyclerView.Adapter<TitleAdapter.TitleViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)

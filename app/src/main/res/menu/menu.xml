@@ -21,23 +21,23 @@
             <item android:id="@+id/View_Sunday"
                 android:title="@string/View_Sunday"/>
             <item android:id="@+id/Remove_Monday"
-                android:title="@string/Edit"/>
+                android:title="@string/Remove_Monday"/>
             <item android:id="@+id/Remove_Thursday"
-                android:title="@string/Edit"/>
+                android:title="@string/Remove_Thursday"/>
             <item android:id="@+id/Remove_Wednesday"
-                android:title="@string/Edit"/>
+                android:title="@string/Remove_Wednesday"/>
             <item android:id="@+id/Remove_Tuesday"
-                android:title="@string/Edit"/>
+                android:title="@string/Remove_Tuesday"/>
             <item android:id="@+id/Remove_Friday"
-                android:title="@string/Edit"/>
+                android:title="@string/Remove_Friday"/>
             <item android:id="@+id/Remove_Saturday"
-                android:title="@string/Edit"/>
+                android:title="@string/Remove_Saturday"/>
             <item android:id="@+id/Remove_Sunday"
-                android:title="@string/Edit"/>
+                android:title="@string/Remove_Sunday"/>
             <item android:id="@+id/View_All"
-                android:title="@string/Edit"/>
+                android:title="@string/View_all"/>
             <item android:id="@+id/remove_all"
-                android:title="@string/Edit"/>
+                android:title="@string/remove_all"/>
 
         </menu>
     </item>
