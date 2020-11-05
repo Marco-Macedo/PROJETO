@@ -24,6 +24,7 @@ class TitleAdapter internal constructor(
 
     }
 
+  
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TitleViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerline, parent, false)
 
