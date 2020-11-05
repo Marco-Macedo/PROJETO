@@ -8,7 +8,7 @@ import androidx.room.Query
 import com.example.projeto.entities.Title
 
 @Dao
-interface TitleDao {
+interface  TitleDao {
     @Query("SELECT * from title_table ORDER BY title ASC")
     fun getAlphabetizedTitles(): LiveData<List<Title>>
 
@@ -17,4 +17,10 @@ interface TitleDao {
 
     @Query("DELETE FROM title_table")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM title_table WHERE title == :title")
+    fun getNotesByTitle(title: String): LiveData<List<Title>>
+
+    @Query("DELETE FROM title_table where title == :title")
+    suspend fun deleteByTitle(title: String)
 }

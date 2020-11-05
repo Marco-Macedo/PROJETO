@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PROJETO">
         <activity android:name=".AddTitle"></activity>
-        <activity android:name=".Remover" />
-        <activity android:name=".Editar" />
+        <activity android:name=".RemoveTitle" />
+        <activity android:name=".EditTitle" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,8 +11,6 @@
                 />
             <item android:id="@+id/edit"
                 android:title="@string/Edit"/>
-            <item android:id="@+id/remove_all"
-                android:title="Remove All"/>
         </menu>
     </item>
 
