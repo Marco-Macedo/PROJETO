@@ -59,6 +59,8 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
+
+
             // attaching the touch helper to recycler view
             ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView)
         })
