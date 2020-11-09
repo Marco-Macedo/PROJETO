@@ -1,5 +1,6 @@
 package com.example.projeto.db
 
+import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.example.projeto.dao.TitleDao
 import com.example.projeto.entities.Title
@@ -26,4 +27,6 @@ class TitleRepository(private val titleDao: TitleDao) {
     suspend fun deleteByTitle(title: String){
         titleDao.deleteByTitle(title)
     }
+
+
 }

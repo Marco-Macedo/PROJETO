@@ -20,16 +20,43 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_alignLeft="@+id/title"
-        android:text="dfsfds"></TextView>
+        android:text="dsds"></TextView>
 
     <TextView
         android:id="@+id/date"
-        android:layout_width="wrap_content"
+        android:layout_width="154dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/title"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginRight="200dp"
+        android:layout_toEndOf="@+id/title"
+        android:layout_toRightOf="@+id/title"
         android:text="fdsfds"></TextView>
+
+    <ImageView
+        android:id="@+id/icon_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="60dp"
+        android:background="@color/blue"
+        android:layout_marginRight="367dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_edit" />
+
+    <ImageView
+        android:id="@+id/icon_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@color/red"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="367dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_delete" />
 
 
 </RelativeLayout>
