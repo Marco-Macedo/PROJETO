@@ -1,10 +1,7 @@
 package com.example.projeto.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.projeto.entities.Title
 
 @Dao
@@ -23,4 +20,16 @@ interface  TitleDao {
 
     @Query("DELETE FROM title_table where title == :title")
     suspend fun deleteByTitle(title: String)
+
+    @Update
+    suspend fun updateNote(title: Title)
+
+    @Delete
+    suspend fun deleteTitle(title: Title)
+
+    @Query("SELECT * FROM title_table WHERE id=:title_id")
+    suspend fun getTitle(title_id: Int) : List<Title>
+
+    @Delete
+    fun delete(title: Title?)
 }

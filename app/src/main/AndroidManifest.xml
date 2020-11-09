@@ -11,7 +11,7 @@
         android:theme="@style/Theme.PROJETO">
         <activity android:name=".AddTitle"></activity>
         <activity android:name=".RemoveTitle" />
-        <activity android:name=".EditTitle" />
+        <activity android:name=".EditActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
