@@ -13,8 +13,7 @@ import com.example.projeto.entities.Title
 import kotlinx.android.synthetic.main.recyclerline.view.*
 
 class TitleAdapter internal constructor(
-        context: Context,
-        private val listener: (Title) -> Unit
+        context: Context
 ) : RecyclerView.Adapter<TitleAdapter.TitleViewHolder>() {
 
     private var titles = emptyList<Title>()

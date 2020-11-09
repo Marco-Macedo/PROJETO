@@ -12,7 +12,7 @@
         android:background="@android:color/black"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:text="sfd"></TextView>
+        android:text="titulo"></TextView>
 
     <TextView
         android:id="@+id/notes"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_alignLeft="@+id/title"
-        android:text="dsds"></TextView>
+        android:text="APONTAMENTOS"></TextView>
 
     <TextView
         android:id="@+id/date"
@@ -32,7 +32,7 @@
         android:layout_marginRight="200dp"
         android:layout_toEndOf="@+id/title"
         android:layout_toRightOf="@+id/title"
-        android:text="fdsfds"></TextView>
+        android:text="xx/xx/xxxx"></TextView>
 
     <ImageView
         android:id="@+id/icon_edit"
@@ -41,22 +41,21 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="60dp"
-        android:background="@color/blue"
+        android:background="@color/red"
         android:layout_marginRight="367dp"
         android:padding="10dp"
-        android:src="@drawable/ic_edit" />
+        android:src="@drawable/ic_baseline_arrow_back_24" />
 
     <ImageView
-        android:id="@+id/icon_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:background="@color/red"
+        android:background="@color/blue"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="367dp"
         android:padding="10dp"
-        android:src="@drawable/ic_delete" />
+        android:src="@drawable/ic_edit" />
 
 
 </RelativeLayout>

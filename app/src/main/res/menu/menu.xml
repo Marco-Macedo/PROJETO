@@ -35,9 +35,9 @@
             <item android:id="@+id/Remove_Sunday"
                 android:title="@string/Remove_Sunday"/>
             <item android:id="@+id/View_All"
-                android:title="@string/View_all"/>
+                android:title="@string/View_All"/>
             <item android:id="@+id/remove_all"
-                android:title="@string/remove_all"/>
+                android:title="@string/Remove_All"/>
 
         </menu>
     </item>
