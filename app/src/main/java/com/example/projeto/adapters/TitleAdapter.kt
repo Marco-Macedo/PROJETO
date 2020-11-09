@@ -17,7 +17,7 @@ class TitleAdapter internal constructor(
 
     private var titles = emptyList<Title>()
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private val listener: OnItemClickListener? = null
+
 
     inner class TitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val TextView1 : TextView = itemView.title
@@ -52,11 +52,6 @@ class TitleAdapter internal constructor(
         return titles[position]
     }
     override fun getItemCount() = titles.size
-
-    interface OnItemClickListener {
-        fun onItemClick(title: Title)
-    }
-
 
 
 }
