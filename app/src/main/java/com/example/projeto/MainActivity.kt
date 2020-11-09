@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             // Update the cached copy of the words in the adapter.
             titles?.let { adapter.setTitles(it) }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
             val itemTouchHelperCallback: ItemTouchHelper.SimpleCallback =
                     object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
                         override fun onMove(    // se quiser mexer de sitio
@@ -48,30 +48,22 @@ class MainActivity : AppCompatActivity() {
                                 viewHolder: RecyclerView.ViewHolder,
                                 target: RecyclerView.ViewHolder
                         ): Boolean {
-                            return false
+                            return false            // Não quero!
                         }
 
                         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                            // Row is swiped from recycler view
-                            // remove it from adapter
-                            //adapter.notifyItemRemoved(viewHolder.adapterPosition);
                             adapter.getTitlesAt(viewHolder.getAdapterPosition())?.let {         // vai buscar a posicao ao adapter recyclerline
-                                titleViewModel.delete(
+                                titleViewModel.delete(                  // remove da bd
                                         it
                                 )
                             }
-
                         }
-
-
                     }
             // attaching the touch helper to recycler view
             ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView)
-
-
         })
         //VIEW MODEL
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity, AddTitle::class.java)
