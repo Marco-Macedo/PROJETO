@@ -45,7 +45,7 @@ class TitleViewModel(application: Application) : AndroidViewModel(application) {
         repository.deleteByTitle(title)
 
     }
-    fun updateTitle(title: Title) {
+    fun delete(title: Title)  = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete(title) }
 
-    }
 }

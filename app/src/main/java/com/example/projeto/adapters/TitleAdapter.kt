@@ -4,8 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import com.example.projeto.R
 import com.example.projeto.entities.Title
 import kotlinx.android.synthetic.main.recyclerline.view.*
@@ -14,14 +16,14 @@ class TitleAdapter internal constructor(
         context: Context
 ) : RecyclerView.Adapter<TitleAdapter.TitleViewHolder>() {
 
+    private var titles = emptyList<Title>()
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var titles = emptyList<Title>() // Cached copy of words
+
 
     inner class TitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val TextView1 : TextView = itemView.title
         val TextView2 : TextView = itemView.notes
         val TextView3 : TextView = itemView.date
-
     }
 
   
@@ -39,7 +41,6 @@ class TitleAdapter internal constructor(
         holder.TextView2.text=current.notes
         holder.TextView3.text = current.date
 
-
     }
 
     internal fun setTitles(titles: List<Title>) {
@@ -47,5 +48,10 @@ class TitleAdapter internal constructor(
         notifyDataSetChanged()
     }
 
+    fun getTitlesAt(position: Int): Title? {
+        return titles[position]
+    }
     override fun getItemCount() = titles.size
+
+
 }

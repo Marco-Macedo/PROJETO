@@ -28,5 +28,8 @@ class TitleRepository(private val titleDao: TitleDao) {
         titleDao.deleteByTitle(title)
     }
 
+    fun delete(title: Title){
+        titleDao.delete(title)
+    }
 
 }
