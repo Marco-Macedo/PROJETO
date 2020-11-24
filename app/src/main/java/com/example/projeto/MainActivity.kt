@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         titleViewModel = ViewModelProvider(this).get(TitleViewModel::class.java)
         titleViewModel.allTitles.observe(this, Observer { titles ->
             // Update the cached copy of the words in the adapter.
-            titles?.let { adapter.setTitles(it) }
+            // titles?.let { adapter.setTitles(it) }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
             val itemTouchHelperCallback: ItemTouchHelper.SimpleCallback =
