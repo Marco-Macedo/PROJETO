@@ -17,6 +17,7 @@ class Login : AppCompatActivity() {
     }
 
     fun login(view: View) {
-
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
     }
 }
