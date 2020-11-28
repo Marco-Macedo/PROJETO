@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         />
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/senha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Password"
@@ -37,7 +37,7 @@
         android:text="LOGIN"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/senha"
         android:layout_marginTop="20dp"
         android:onClick="login"
         />

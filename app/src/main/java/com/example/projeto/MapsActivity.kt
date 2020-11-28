@@ -37,7 +37,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Add a marker in Sydney and move the camera
         val barcelos = LatLng(41.5166646, -8.6166642)
-        mMap.addMarker(MarkerOptions().position(barcelos).title("Marker in Sydney"))
+        mMap.addMarker(MarkerOptions().position(barcelos).title("Marker in Barcelos"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(barcelos))
     }
 }

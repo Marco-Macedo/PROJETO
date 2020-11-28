@@ -3,10 +3,9 @@ package com.example.projeto.api
 data class User(
         val id: Int,
         val name: String,
-        val email: String,
-        val address: Address
+        val password: String
 )
-
+/*
 data class Address(
         val street: String,
         val suite: String,
@@ -18,4 +17,4 @@ data class Address(
 data class Geo(
         val lat: String,
         val lng: String
-)
+)*/
