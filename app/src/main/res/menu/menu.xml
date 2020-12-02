@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/file"
         android:title="@string/Options"
-        app:showAsAction="always">
+        app:showAsAction="always"
+        >
 
         <menu>
             <item android:id="@+id/View_Monday"

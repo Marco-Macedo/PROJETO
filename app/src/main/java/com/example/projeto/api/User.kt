@@ -5,6 +5,13 @@ data class User(
         val name: String,
         val password: String
 )
+/*data class Problemas(
+        val id: Int,
+        val descr: String,
+        val lng: double,
+        val lat: double,
+        val user_id: Int
+)*/
 /*
 data class Address(
         val street: String,
