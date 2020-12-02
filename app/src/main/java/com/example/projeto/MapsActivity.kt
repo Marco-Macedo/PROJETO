@@ -28,7 +28,7 @@ import retrofit2.Response
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var problems: List<Problem>
+    private lateinit var problems: List<problemas>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,26 +38,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        // call the service and add markers
+///////////////////////////// call the service and add markers ///////////////////////////////////////////////////
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.getProblem()
         var position: LatLng
 
-        call.enqueue(object : retrofit2.Callback<List<Problem>> {
-            override fun onResponse(call: Call<List<Problem>>, response: Response<List<Problem>>) {
+        call.enqueue(object : retrofit2.Callback<List<problemas>> {
+            override fun onResponse(call: Call<List<problemas>>, response: Response<List<problemas>>) {
                 if (response.isSuccessful){     // Em caso de sucesso
                     problems = response.body()!! // igualar a lista de problemas
                     for (problem in problems) {
-                        position = LatLng(problem.lat.toDouble(), //latlng precisa de recerber um double da longitude e latitude
-                                problem.lng.toDouble())
+                        position = LatLng(problem.latitude.toDouble(), //latlng precisa de recerber um double da longitude e latitude
+                                problem.longitude.toDouble())
                         mMap.addMarker(MarkerOptions().position(position).title(problem.descr))
                     }
                 }
             }
-            override fun onFailure(call: Call<List<Problem>>, t: Throwable) {
+            override fun onFailure(call: Call<List<problemas>>, t: Throwable) {
                 Toast.makeText(this@MapsActivity, "${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
 

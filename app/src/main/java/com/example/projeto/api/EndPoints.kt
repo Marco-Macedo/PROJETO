@@ -6,7 +6,7 @@ import retrofit2.http.*
 
 interface EndPoints {
     @GET("/myslim/api/problem")
-    fun getProblem(): Call<List<Problem>>
+    fun getProblem(): Call<List<problemas>>
 
     @FormUrlEncoded
     @POST("/myslim/api/user")
