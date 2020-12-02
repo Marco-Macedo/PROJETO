@@ -13,6 +13,7 @@ class AddTitle : AppCompatActivity() {
     private lateinit var text2: EditText
     private lateinit var text3: EditText
 
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_title)
