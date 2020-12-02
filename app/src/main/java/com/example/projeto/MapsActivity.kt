@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projeto.adapters.TitleAdapter
+import com.example.projeto.api.*
 import com.example.projeto.viewModel.TitleViewModel
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -20,11 +20,15 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import javax.security.auth.callback.Callback
+import retrofit2.Call
+import retrofit2.Response
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private val newWordActivityRequestCode = 1
+    private lateinit var problems: List<Problem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,39 +38,43 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        // IF LOGOUT BUTTON IS PRESSED
-        /* val logout = findViewById<FloatingActionButton>(R.id.logout)
-        logout.setOnClickListener {
-            val intent = Intent(this@MapsActivity, Login::class.java)
-            startActivity(intent)
-        }*/
+        // call the service and add markers
+        val request = ServiceBuilder.buildService(EndPoints::class.java)
+        val call = request.getProblem()
+        var position: LatLng
 
-        //////////////////////////////
-
+        call.enqueue(object : retrofit2.Callback<List<Problem>> {
+            override fun onResponse(call: Call<List<Problem>>, response: Response<List<Problem>>) {
+                if (response.isSuccessful){     // Em caso de sucesso
+                    problems = response.body()!! // igualar a lista de problemas
+                    for (problem in problems) {
+                        position = LatLng(problem.lat.toDouble(), //latlng precisa de recerber um double da longitude e latitude
+                                problem.lng.toDouble())
+                        mMap.addMarker(MarkerOptions().position(position).title(problem.descr))
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Problem>>, t: Throwable) {
+                Toast.makeText(this@MapsActivity, "${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val barcelos = LatLng(41.5166646, -8.6166642)
-        mMap.addMarker(MarkerOptions().position(barcelos).title("Marker in Barcelos"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(barcelos))
+        //val barcelos = LatLng(41.5166646, -8.6166642)
+        //mMap.addMarker(MarkerOptions().position(barcelos).title("Marker in Barcelos"))
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(barcelos))
+
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_login, menu)
+        inflater.inflate(R. menu.menu_login, menu)
         return true
     }
 
