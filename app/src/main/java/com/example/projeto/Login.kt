@@ -35,11 +35,15 @@ class Login : AppCompatActivity() {
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.postLogin(username,password)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////// LOGIN ///////////////////////////////////
 
         call.enqueue(object : retrofit2.Callback<OutputPost> {
+
             override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
+
                 if (response.isSuccessful) {
-                    if (response.body()?.error == false) {
+                    if (response.body()?.cnt == 0) {
                         val c: OutputPost = response.body()!!
                         Toast.makeText(this@Login, "Login falhou, credenciais erradas.", Toast.LENGTH_SHORT).show()
                     }else{
@@ -55,6 +59,7 @@ class Login : AppCompatActivity() {
             }
         })
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 }

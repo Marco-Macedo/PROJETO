@@ -1,7 +1,7 @@
 package com.example.projeto.api
 
 data class OutputPost(
-        val error: Boolean,
+        val cnt: Int,
         val title: String
 
 )
