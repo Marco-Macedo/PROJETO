@@ -19,6 +19,7 @@ import retrofit2.Response
 
 
 class Login : AppCompatActivity() {
+    private var userid : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login2)
@@ -35,6 +36,7 @@ class Login : AppCompatActivity() {
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.postLogin(username,password)
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////// LOGIN ///////////////////////////////////
 
@@ -47,8 +49,11 @@ class Login : AppCompatActivity() {
                         val c: OutputPost = response.body()!!
                         Toast.makeText(this@Login, "Login falhou, credenciais erradas.", Toast.LENGTH_SHORT).show()
                     }else{
+                        val a: OutputPost = response.body()!!
                         val intent = Intent(this@Login, MapsActivity::class.java)
-                        Toast.makeText(this@Login, "Login efectuado", Toast.LENGTH_SHORT).show()
+                        userid = a.id.toInt()
+                        intent.putExtra("user_id",userid)
+                        Toast.makeText(this@Login, "Login efectuado"+ a.id, Toast.LENGTH_SHORT).show()
                         startActivity(intent)
                     }
 
