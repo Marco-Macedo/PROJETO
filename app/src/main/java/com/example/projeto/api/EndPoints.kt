@@ -15,7 +15,7 @@ interface EndPoints {
             @Field("password") password: String?): Call<OutputPost>
 
     @POST("/myslim/api/registarproblema")
-    fun postRegistMarker(
+    fun postRegister(
         @Field("descr") descr: String?,
         @Field("latitude") latitude: String?,
         @Field("longitude") longitude: String?,

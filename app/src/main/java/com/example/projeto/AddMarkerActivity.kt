@@ -12,11 +12,13 @@ import com.example.projeto.api.ServiceBuilder
 import kotlinx.android.synthetic.main.activity_login2.*
 import kotlinx.android.synthetic.main.add_marker.*
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 
 class AddMarkerActivity : AppCompatActivity() {
     private var userid : Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_marker)
@@ -26,24 +28,25 @@ class AddMarkerActivity : AppCompatActivity() {
 
 
         userid = intent.getIntExtra("user_id",0)
-        findViewById<TextView>(R.id.Latitude).setText(latitude)
-        findViewById<TextView>(R.id.Longitude).setText(longitude)
-        findViewById<TextView>(R.id.user_id).setText(userid.toString())
+        findViewById<TextView>(R.id.lat).setText(latitude)
+        findViewById<TextView>(R.id.lng).setText(longitude)
+        findViewById<TextView>(R.id.iduser).setText(userid.toString())
     }
 
-    fun adicionarmarcador(view: View) {
+    fun addMarker(view: View) {
 
         val descr = descricao.text.toString().trim()
-        val latitude = Latitude.text.toString().trim()
-        val longitude = Longitude.text.toString().trim()
+        val latitude = lat.text.toString().trim()
+        val longitude = lng.text.toString().trim()
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.postRegistMarker(descr,latitude,longitude,userid)
+        val call = request.postRegister(descr,latitude,longitude,userid)
+        Toast.makeText(this@AddMarkerActivity, "Entrei", Toast.LENGTH_SHORT).show()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////// REGISTAR MARCADOR ///////////////////////////////////
 
-        call.enqueue(object : retrofit2.Callback<OutputPost> {
+       /* call.enqueue(object : Callback<OutputPost> {
 
             override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
 
@@ -52,12 +55,13 @@ class AddMarkerActivity : AppCompatActivity() {
                         Toast.makeText(this@AddMarkerActivity, "Novo Marcador inserido com sucesso", Toast.LENGTH_SHORT).show()
                         intent.putExtra("user_id",userid)
                         startActivity(intent)
-                    }
+
+                }
             }
             override fun onFailure(call: Call<OutputPost>, t: Throwable) {
-                Toast.makeText(this@AddMarkerActivity, "${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AddMarkerActivity, "Erro na inserção", Toast.LENGTH_SHORT).show()
             }
-        })
+        })*/
 
     }
 
