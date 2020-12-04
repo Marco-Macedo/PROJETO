@@ -65,7 +65,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         //initialize fusedLocationClient
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        userid =  intent.getIntExtra("user_id",0)
+        userid =  intent.getIntExtra("userid",0)
 ///////////////////////////// call the service and add markers ///////////////////////////////////////////////////
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.getProblem()
@@ -199,11 +199,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
             R.id.add -> {
 
-                val intencao = Intent(this, AddMarkerActivity::class.java)
-                intencao.putExtra("latitude",lat)
-                intencao.putExtra("longitude", lng)
-                intencao.putExtra("user_id",userid)
-                startActivity(intencao)
+                val intent2 = Intent(this, AddMarkerActivity::class.java)
+                intent2.putExtra("latitude",lat)
+                intent2.putExtra("longitude", lng)
+                intent2.putExtra("userid",userid)
+                startActivity(intent2)
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -52,7 +52,7 @@ class Login : AppCompatActivity() {
                         val a: OutputPost = response.body()!!
                         val intent = Intent(this@Login, MapsActivity::class.java)
                         userid = a.id.toInt()
-                        intent.putExtra("user_id",userid)
+                        intent.putExtra("userid",userid)
                         Toast.makeText(this@Login, "Login efectuado"+ a.id, Toast.LENGTH_SHORT).show()
                         startActivity(intent)
                     }

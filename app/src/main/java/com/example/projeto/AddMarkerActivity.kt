@@ -25,23 +25,19 @@ class AddMarkerActivity : AppCompatActivity() {
 
         var latitude =  intent.getStringExtra("latitude")
         var longitude = intent.getStringExtra("longitude")
+        userid = intent.getIntExtra("userid",0)
 
-
-        userid = intent.getIntExtra("user_id",0)
         findViewById<TextView>(R.id.lat).setText(latitude)
         findViewById<TextView>(R.id.lng).setText(longitude)
-        findViewById<TextView>(R.id.iduser).setText(userid.toInt())
+        findViewById<TextView>(R.id.iduser).setText(userid.toString())
     }
 
     fun addMarker(view: View) {
 
-        //val descr = descr.text.toString().trim()
-        //val latitude = lat.text.toString().trim()
+        val descr = descr.text.toString().trim()
+        val latitude = lat.text.toString().trim()
+        val longitude = lng.text.toString().trim()
 
-
-       // val longitude = lng.text.toString().trim()
-        Toast.makeText(this@AddMarkerActivity, userid, Toast.LENGTH_SHORT).show()
-        /*
                val request = ServiceBuilder.buildService(EndPoints::class.java)
                val call = request.postRegister(descr,latitude,longitude,userid)
 
@@ -64,7 +60,7 @@ class AddMarkerActivity : AppCompatActivity() {
                    override fun onFailure(call: Call<OutputPost>, t: Throwable) {
                        Toast.makeText(this@AddMarkerActivity, "Erro na inserção", Toast.LENGTH_SHORT).show()
                    }
-               })*/
+               })
 
     }
 
