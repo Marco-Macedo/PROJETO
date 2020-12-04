@@ -35,7 +35,7 @@
 
 
     <EditText
-        android:id="@+id/descricao"
+        android:id="@+id/descr"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:fontFamily="sans-serif-light"

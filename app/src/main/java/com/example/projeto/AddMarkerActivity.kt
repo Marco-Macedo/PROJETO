@@ -30,38 +30,41 @@ class AddMarkerActivity : AppCompatActivity() {
         userid = intent.getIntExtra("user_id",0)
         findViewById<TextView>(R.id.lat).setText(latitude)
         findViewById<TextView>(R.id.lng).setText(longitude)
-        findViewById<TextView>(R.id.iduser).setText(userid.toString())
+        findViewById<TextView>(R.id.iduser).setText(userid.toInt())
     }
 
     fun addMarker(view: View) {
 
-        val descr = descricao.text.toString().trim()
-        val latitude = lat.text.toString().trim()
-        val longitude = lng.text.toString().trim()
+        //val descr = descr.text.toString().trim()
+        //val latitude = lat.text.toString().trim()
 
-        val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.postRegister(descr,latitude,longitude,userid)
-        Toast.makeText(this@AddMarkerActivity, "Entrei", Toast.LENGTH_SHORT).show()
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////// REGISTAR MARCADOR ///////////////////////////////////
+       // val longitude = lng.text.toString().trim()
+        Toast.makeText(this@AddMarkerActivity, userid, Toast.LENGTH_SHORT).show()
+        /*
+               val request = ServiceBuilder.buildService(EndPoints::class.java)
+               val call = request.postRegister(descr,latitude,longitude,userid)
 
-       /* call.enqueue(object : Callback<OutputPost> {
 
-            override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
+       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+               //////////////////////////// REGISTAR MARCADOR ///////////////////////////////////
 
-                if (response.isSuccessful) {
-                        val intent = Intent(this@AddMarkerActivity, MapsActivity::class.java)
-                        Toast.makeText(this@AddMarkerActivity, "Novo Marcador inserido com sucesso", Toast.LENGTH_SHORT).show()
-                        intent.putExtra("user_id",userid)
-                        startActivity(intent)
+               call.enqueue(object : Callback<OutputPost> {
 
-                }
-            }
-            override fun onFailure(call: Call<OutputPost>, t: Throwable) {
-                Toast.makeText(this@AddMarkerActivity, "Erro na inserção", Toast.LENGTH_SHORT).show()
-            }
-        })*/
+                   override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
+
+                       if (response.isSuccessful) {
+                               val intent = Intent(this@AddMarkerActivity, MapsActivity::class.java)
+                               Toast.makeText(this@AddMarkerActivity, "Novo Marcador inserido com sucesso", Toast.LENGTH_SHORT).show()
+                               intent.putExtra("user_id",userid)
+                               startActivity(intent)
+
+                       }
+                   }
+                   override fun onFailure(call: Call<OutputPost>, t: Throwable) {
+                       Toast.makeText(this@AddMarkerActivity, "Erro na inserção", Toast.LENGTH_SHORT).show()
+                   }
+               })*/
 
     }
 
