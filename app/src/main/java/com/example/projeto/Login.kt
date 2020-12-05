@@ -1,5 +1,6 @@
 package com.example.projeto
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +26,7 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_login2)
     }
 
+
     fun notas(view: View) {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
@@ -33,7 +35,6 @@ class Login : AppCompatActivity() {
     fun login(view: View) {
         val username = nome.text.toString().trim()
         val password = senha.text.toString().trim()
-
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.postLogin(username,password)
 
@@ -49,10 +50,23 @@ class Login : AppCompatActivity() {
                         val c: OutputPost = response.body()!!
                         Toast.makeText(this@Login, "Login falhou, credenciais erradas.", Toast.LENGTH_SHORT).show()
                     }else{
+
+
                         val a: OutputPost = response.body()!!
                         val intent = Intent(this@Login, MapsActivity::class.java)
                         userid = a.id.toInt()
                         intent.putExtra("userid",userid)
+
+
+                    /*    /// GET NAME SHARED PREFERENCES ////
+
+                        var token = getSharedPreferences("username", Context.MODE_PRIVATE)
+                        var editor = token.edit()
+                        editor.putString("username_login_atual",username)
+                        editor.commit()
+
+                        //////////////////////////// */
+
                         Toast.makeText(this@Login, "Login efectuado"+ a.id, Toast.LENGTH_SHORT).show()
                         startActivity(intent)
                     }
@@ -64,7 +78,22 @@ class Login : AppCompatActivity() {
             }
         })
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+    override fun onStart() {
+        super.onStart()
+        var token = getSharedPreferences("username", Context.MODE_PRIVATE)
+        if(token.getString("username_login_atual"," ") != " ") {
 
+            var tokenid = getSharedPreferences("id", Context.MODE_PRIVATE)
+            var editorid = tokenid.edit()
+            editorid.putInt("id_login_atual",userid)
+            editorid.commit()
+            val intent = Intent(this@Login, MapsActivity::class.java)       // ENTRA NA ATIVIDADE
+
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+        }
+    }*/
 
 }

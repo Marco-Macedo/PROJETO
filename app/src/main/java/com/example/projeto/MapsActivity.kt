@@ -1,6 +1,7 @@
 package com.example.projeto
 
 import android.content.ContentProviderClient
+import android.content.Context
 import android.content.Intent
 import android.content.LocusId
 import android.content.pm.PackageManager
@@ -193,7 +194,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         return when (item.itemId) {
 
             R.id.logout -> {
-                val intent = Intent(this, Login::class.java)
+             /*   var token = getSharedPreferences("username", Context.MODE_PRIVATE)
+                var editor = token.edit()
+                editor.putString("username_login_atual"," ")
+                editor.commit() */
+                val intent = Intent(this@MapsActivity, Login::class.java)
                 startActivity(intent)
                 true
             }
