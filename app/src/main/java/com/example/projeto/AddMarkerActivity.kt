@@ -24,25 +24,31 @@ class AddMarkerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_marker)
 
+        /// IR BUSCAR LATITUDE E LONGITUDE AO INTENT ///
+
         var latitude =  intent.getStringExtra("latitude")
         var longitude = intent.getStringExtra("longitude")
+        ///////////////////////////////////////////////
 
+        /// IR BUSCAR O USER ID À SHARED PREFERENCE /////
         var token = getSharedPreferences("id", Context.MODE_PRIVATE)
         userid = token.getInt("id_login_atual", 0)
+        /////////////////////////////////////////////////
 
-        findViewById<TextView>(R.id.lat).setText(latitude)
-        findViewById<TextView>(R.id.lng).setText(longitude)
-        findViewById<TextView>(R.id.iduser).setText(userid.toString())
+    // default
+        findViewById<TextView>(R.id.lat).setText(latitude)          // coloca valor da latitude no campo Lat do XML
+        findViewById<TextView>(R.id.lng).setText(longitude)         // coloca valor da longitude no campo Lng do XML
+        findViewById<TextView>(R.id.iduser).setText(userid.toString()) // coloca valor do user_id no campo iduser do XML
     }
 
     fun addMarker(view: View) {
 
-        val descr = descr.text.toString().trim()
-        val latitude = lat.text.toString().trim()
-        val longitude = lng.text.toString().trim()
+        val descr = descr.text.toString().trim()            // variavel descr toma o valor do campo descr do xml
+        val latitude = lat.text.toString().trim()           // variavel latitude toma o valor do campo lat do xml
+        val longitude = lng.text.toString().trim()          // variavel longitude toma o valor do campo lng do xml
 
-               val request = ServiceBuilder.buildService(EndPoints::class.java)
-               val call = request.postRegister(descr,latitude,longitude,userid)
+               val request = ServiceBuilder.buildService(EndPoints::class.java)     // crio o request
+               val call = request.postRegister(descr,latitude,longitude,userid)     // crio a call
 
 
        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -17,8 +17,6 @@ import javax.security.auth.callback.Callback
 import retrofit2.Call
 import retrofit2.Response
 
-
-
 class Login : AppCompatActivity() {
     private var userid : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,8 +86,8 @@ class Login : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        var token = getSharedPreferences("username", Context.MODE_PRIVATE)
-        if(token.getString("username_login_atual"," ") != " ") {
+        var token = getSharedPreferences("username", Context.MODE_PRIVATE)      // declaras o token -> username
+        if(token.getString("username_login_atual"," ") != " ") {            //
 
 
             val intent = Intent(this@Login, MapsActivity::class.java)       // ENTRA NA ATIVIDADE

@@ -26,6 +26,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -91,8 +92,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     for (problem in problems) {
                         position = LatLng(problem.latitude.toDouble(), //latlng precisa de recerber um double da longitude e latitude
                                 problem.longitude.toDouble())
-                        mMap.addMarker(MarkerOptions().position(position).title(problem.descr))
-
+                        mMap.addMarker(MarkerOptions().position(position).title(problem.descr).icon(BitmapDescriptorFactory
+                                .defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                     }
                 }
             }
@@ -136,7 +137,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //val barcelos = LatLng(41.5166646, -8.6166642)
         //mMap.addMarker(MarkerOptions().position(barcelos).title("Marker in Barcelos"))
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(barcelos))
-
+ /*   mMap.setOnMarkerClickListener {
+        Toast.makeText(this,"Entrei",Toast.LENGTH_SHORT).show()
+        true
+    }*/
         setUpMap()
 
     }
@@ -207,7 +211,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
-        inflater.inflate(R. menu.menu_login, menu)
+        inflater.inflate(R.menu.menu_login, menu)
         return true
     }
 
@@ -218,8 +222,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             R.id.logout -> {
                 var token = getSharedPreferences("username", Context.MODE_PRIVATE)
                 var editor = token.edit()
-                editor.putString("username_login_atual"," ")
-                editor.commit()
+                editor.putString("username_login_atual"," ")        // Iguala valor a vazio, fica sem valor, credenciais soltas
+                editor.commit()                                     // Atualizar editor
                 val intent = Intent(this@MapsActivity, Login::class.java)
                 startActivity(intent)
                 true
