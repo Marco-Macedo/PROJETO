@@ -30,6 +30,7 @@ class AddTitle : AppCompatActivity() {
                 val notes = text2.text.toString()
                 val date = text3.text.toString()
 
+
                 replyIntent.putExtra(EXTRA_REPLY_TITLE, title.toString())
                 replyIntent.putExtra(EXTRA_REPLY_NOTES, notes.toString())
                 replyIntent.putExtra(EXTRA_REPLY_DATE, date.toString())
