@@ -67,8 +67,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(R.layout.activity_maps)
 
         //added to implement distance between two locations
-        continenteLat = 41.7043
-        continenteLong = -8.8148
+        continenteLat = 41.53678
+        continenteLong = -8.60905
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
