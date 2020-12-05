@@ -29,6 +29,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import org.w3c.dom.Text
 import javax.security.auth.callback.Callback
 import retrofit2.Call
 import retrofit2.Response
@@ -50,6 +51,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var lat : String
     private lateinit var lng : String
     private var userid : Int = 0
+    //added to implement distance between two locations
+    private var continenteLat: Double = 0.0
+    private var continenteLong: Double = 0.0
+
     companion object{
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1 // add implement location periodic updates
         private const val REQUEST_CHECK_SETTINGS = 2
@@ -59,6 +64,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+        //added to implement distance between two locations
+        continenteLat = 41.7043
+        continenteLong = -8.8148
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
@@ -67,6 +77,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //initialize fusedLocationClient
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         userid =  intent.getIntExtra("userid",0)
+
+
 ///////////////////////////// call the service and add markers ///////////////////////////////////////////////////
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.getProblem()
@@ -99,8 +111,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 lat = loc.latitude.toString()
                 lng = loc.longitude.toString()
 
+                // preenche as coordenadas
                 findViewById<TextView>(R.id.txtcoordenadas).setText("Lat: " + loc.latitude + " - Long: " + loc.longitude)
                 Log.d("**** MARCO", "new location received - " + loc.latitude + " -" + loc.longitude)
+
+                // distancia
+                findViewById<TextView>(R.id.txtdistancia).setText("Distância: " + calculateDistance(
+                        lastLocation.latitude, lastLocation.longitude,
+                        continenteLat, continenteLong).toString())
+
             }
         }
 
@@ -177,6 +196,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null /* Looper */)
     }
 
+    fun calculateDistance(lat1: Double, lng1: Double, lat2: Double, lng2: Double): Float {
+        val results = FloatArray(1)
+        Location.distanceBetween(lat1, lng1, lat2, lng2, results)
+        // distance in meter
+        return results[0]
+    }
 
             // MENU DE OPCOES E AS SUAS FUNÇÕES //
 
