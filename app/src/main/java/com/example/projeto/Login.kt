@@ -58,14 +58,14 @@ class Login : AppCompatActivity() {
                         intent.putExtra("userid",userid)
 
 
-                    /*    /// GET NAME SHARED PREFERENCES ////
+                        /// GET NAME SHARED PREFERENCES ////
 
                         var token = getSharedPreferences("username", Context.MODE_PRIVATE)
                         var editor = token.edit()
                         editor.putString("username_login_atual",username)
                         editor.commit()
 
-                        //////////////////////////// */
+                        ////////////////////////////
 
                         Toast.makeText(this@Login, "Login efectuado"+ a.id, Toast.LENGTH_SHORT).show()
                         startActivity(intent)
@@ -78,7 +78,7 @@ class Login : AppCompatActivity() {
             }
         })
     }
-/*
+
     override fun onStart() {
         super.onStart()
         var token = getSharedPreferences("username", Context.MODE_PRIVATE)
@@ -94,6 +94,5 @@ class Login : AppCompatActivity() {
 
             startActivity(intent)
         }
-    }*/
-
+    }
 }
