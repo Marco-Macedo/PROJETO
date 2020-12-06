@@ -92,8 +92,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     for (problem in problems) {
                         position = LatLng(problem.latitude.toDouble(), //latlng precisa de recerber um double da longitude e latitude
                                 problem.longitude.toDouble())
-                        mMap.addMarker(MarkerOptions().position(position).title(problem.descr).icon(BitmapDescriptorFactory
-                                .defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                        mMap.addMarker(
+                                MarkerOptions()
+                                        .position(position)
+                                        .snippet("ID do problema: " + problem.id.toString())
+                                        .title(problem.descr)
+                                        .anchor(0.5f, 0.5f)
+                                        .zIndex(1.0f)
+                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                     }
                 }
             }
@@ -137,7 +143,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //val barcelos = LatLng(41.5166646, -8.6166642)
         //mMap.addMarker(MarkerOptions().position(barcelos).title("Marker in Barcelos"))
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(barcelos))
- /*   mMap.setOnMarkerClickListener {
+  /*        mMap.setOnMarkerClickListener {
         Toast.makeText(this,"Entrei",Toast.LENGTH_SHORT).show()
         true
     }*/
@@ -234,6 +240,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 intent2.putExtra("latitude",lat)
                 intent2.putExtra("longitude", lng)
                 startActivity(intent2)
+                true
+            }
+            R.id.delete -> {
                 true
             }
             else -> super.onOptionsItemSelected(item)

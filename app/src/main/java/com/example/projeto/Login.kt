@@ -63,7 +63,7 @@ class Login : AppCompatActivity() {
                         editor.putString("username_login_atual",username)
                         editor.commit()
 
-                        ///////////////////////////////////////
+                        ////////////////////////////////////////
                         ///////// GET ID SHARED PREFERENCES ////
 
                         var tokenid = getSharedPreferences("id", Context.MODE_PRIVATE)

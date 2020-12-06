@@ -23,4 +23,7 @@ interface EndPoints {
         @Field("user_id") user_id: Int
     ): Call<OutputPost>
 
+    @GET("myslim/api/problema/{id}")
+    fun deleteProblema(): Call<OutputPost>
+
 }
