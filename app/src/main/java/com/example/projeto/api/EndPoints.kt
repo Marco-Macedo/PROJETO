@@ -24,6 +24,7 @@ interface EndPoints {
     ): Call<OutputPost>
 
     @GET("myslim/api/problema/{id}")
-    fun deleteProblema(): Call<OutputPost>
-
+    fun deleteProblema(
+        @Path("id") id: Int
+    ): Call<OutputPost>
 }

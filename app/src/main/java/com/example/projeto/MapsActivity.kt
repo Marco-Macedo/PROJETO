@@ -243,6 +243,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 true
             }
             R.id.delete -> {
+                val intent = Intent(this, DeleteActivity::class.java)
+                startActivity(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PROJETO">
-        <activity android:name=".deleteActivity"></activity>
+        <activity android:name=".DeleteActivity"></activity>
         <activity android:name=".AddMarkerActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
