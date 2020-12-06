@@ -52,6 +52,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var lat : String
     private lateinit var lng : String
     private var userid : Int = 0
+
+    // add variables to shared preferences
+    private var idsharedpreference : Int = 0
+    private lateinit var nomesharedpreference : String
+
     //added to implement distance between two locations
     private var continenteLat: Double = 0.0
     private var continenteLong: Double = 0.0
@@ -112,6 +117,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         locationCallback = object : LocationCallback() {    // é disparada sempre que novas coordenadas sao recebidas
             override fun onLocationResult(p0: LocationResult) {
                 super.onLocationResult(p0)
+
+                var token = getSharedPreferences("id", Context.MODE_PRIVATE)
+                idsharedpreference = token.getInt("id_login_atual", 0)
+
+                var token2 = getSharedPreferences("username", Context.MODE_PRIVATE)
+                nomesharedpreference = token2.getString("username_login_atual"," ").toString()
+
                 lastLocation = p0.lastLocation
                 var loc = LatLng(lastLocation.latitude, lastLocation.longitude)
                 //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 15.0f))
@@ -127,6 +139,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         lastLocation.latitude, lastLocation.longitude,
                         continenteLat, continenteLong).toString())
 
+                // user id
+                findViewById<TextView>(R.id.USERID).setText("User ID: " + idsharedpreference.toString().toInt())
+
+                // nome
+                findViewById<TextView>(R.id.NOME).setText("Nome: " + nomesharedpreference)
             }
         }
 
