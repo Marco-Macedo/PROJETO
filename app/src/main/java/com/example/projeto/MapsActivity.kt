@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.LocusId
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -139,6 +140,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         lastLocation.latitude, lastLocation.longitude,
                         continenteLat, continenteLong).toString())
 
+                // morada
+                val address = getAddress(lastLocation.latitude, lastLocation.longitude)
+                findViewById<TextView>(R.id.txtmorada).setText("Morada: " + address)
+
                 // user id
                 findViewById<TextView>(R.id.USERID).setText("User ID: " + idsharedpreference.toString().toInt())
 
@@ -230,12 +235,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         return results[0]
     }
 
+
             // MENU DE OPCOES E AS SUAS FUNÇÕES //
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_login, menu)
         return true
+    }
+
+    private fun getAddress(lat: Double, lng: Double): String {
+        val geocoder = Geocoder(this)
+        val list = geocoder.getFromLocation(lat, lng, 1)
+        return list[0].getAddressLine(0)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
