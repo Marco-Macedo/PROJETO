@@ -34,7 +34,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".AddTitle" />
         <activity android:name=".Login">
-            <intent-filter>
+            <intent-filter>33
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -57,7 +57,6 @@ class AddMarkerActivity : AppCompatActivity() {
                call.enqueue(object : Callback<OutputPost> {
 
                    override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
-
                        if (response.isSuccessful) {
                                val intent = Intent(this@AddMarkerActivity, MapsActivity::class.java)
                                Toast.makeText(this@AddMarkerActivity, "Novo Marcador inserido com sucesso", Toast.LENGTH_SHORT).show()
