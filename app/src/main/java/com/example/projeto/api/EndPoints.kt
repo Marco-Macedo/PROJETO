@@ -17,10 +17,14 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("/myslim/api/registarproblema")
     fun postRegister(
-        @Field("descr") descr: String?,
-        @Field("latitude") latitude: String?,
-        @Field("longitude") longitude: String?,
-        @Field("user_id") user_id: Int
+            @Field("descr") descr: String?,
+            @Field("latitude") latitude: String?,
+            @Field("longitude") longitude: String?,
+            @Field("user_id") user_id: Int
     ): Call<OutputPost>
 
+    @GET("myslim/api/problema/{id}")
+    fun deleteProblema(
+            @Path("id") id: Int
+    ): Call<OutputPost>
 }
