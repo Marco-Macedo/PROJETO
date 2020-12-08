@@ -56,15 +56,12 @@ class Login : AppCompatActivity() {
                         intent.putExtra("userid",userid)
 
 
-                        /// GET NAME SHARED PREFERENCES ////
-
                         var token = getSharedPreferences("username", Context.MODE_PRIVATE)
                         var editor = token.edit()
                         editor.putString("username_login_atual",username)
                         editor.commit()
 
                         ////////////////////////////////////////
-                        ///////// GET ID SHARED PREFERENCES ////
 
                         var tokenid = getSharedPreferences("id", Context.MODE_PRIVATE)
                         var editorid = tokenid.edit()

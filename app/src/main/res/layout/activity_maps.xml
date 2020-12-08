@@ -52,7 +52,7 @@
         android:textColor="#ffffff"
         android:background="@color/green"
         android:layout_below="@id/txtdistancia"
-        android:text="Distância: "></TextView>
+        android:text="Morada: "></TextView>
 
     <TextView
         android:id="@+id/USERID"
@@ -78,7 +78,7 @@
         android:textColor="#ffffff"
         android:background="@color/green"
         android:layout_below="@id/USERID"
-        android:text="Nome: "></TextView>
+        android:text="@string/name"></TextView>
 
 
 </RelativeLayout>

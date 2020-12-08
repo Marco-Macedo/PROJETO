@@ -87,6 +87,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
 ///////////////////////////// call the service and add markers ///////////////////////////////////////////////////
+
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.getProblem()
         var position: LatLng
@@ -155,7 +156,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // request creation
         createLocationRequest() // Chama a funcao createlocationrequest()
 
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -170,7 +170,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         true
     }*/
         setUpMap()
-
     }
 
      fun setUpMap() {           // GET LOCATION
@@ -236,18 +235,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
+
+    private fun getAddress(lat: Double, lng: Double): String {
+        val geocoder = Geocoder(this)
+        val list = geocoder.getFromLocation(lat, lng, 1)
+        return list[0].getAddressLine(0)
+    }
+
+
             // MENU DE OPCOES E AS SUAS FUNÇÕES //
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_login, menu)
         return true
-    }
-
-    private fun getAddress(lat: Double, lng: Double): String {
-        val geocoder = Geocoder(this)
-        val list = geocoder.getFromLocation(lat, lng, 1)
-        return list[0].getAddressLine(0)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

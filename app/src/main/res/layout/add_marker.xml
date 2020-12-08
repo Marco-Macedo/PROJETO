@@ -14,7 +14,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Adicionar Marker"
+        android:text="@string/Add_Marker"
         android:textColor="@color/black"
         android:textSize="50dp"
         tools:layout_editor_absoluteX="16dp"
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:fontFamily="sans-serif-light"
-        android:hint="Descrição do problema"
+        android:hint="@string/problemDescription"
         android:inputType="textAutoComplete"
         android:backgroundTint="@color/green"
         android:textSize="18sp" />
@@ -70,7 +70,7 @@
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/lime"
         android:onClick="addMarker"
-        android:text="ADICIONAR MARCADOR"
+        android:text="@string/addnow"
         android:textColor="@color/black" />
 
 </LinearLayout>
