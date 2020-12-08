@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/maps">
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/removebyid"
+        android:textColor="@color/black"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:textSize="50dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/userid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="270dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/insertproblemid"
+        android:inputType="textAutoComplete"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/maroon"
+        android:onClick="deleteMarker"
+        android:text="@string/removenow"
+        android:textColor="@color/white" />
+
+</LinearLayout>

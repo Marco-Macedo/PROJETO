@@ -178,10 +178,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
-
-
-
-    // MENU DE OPCOES E AS SUAS FUNÇÕES //
+            // MENU DE OPCOES E AS SUAS FUNÇÕES //
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
@@ -194,10 +191,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         return when (item.itemId) {
 
             R.id.logout -> {
-             /*   var token = getSharedPreferences("username", Context.MODE_PRIVATE)
+                var token = getSharedPreferences("username", Context.MODE_PRIVATE)
                 var editor = token.edit()
                 editor.putString("username_login_atual"," ")
-                editor.commit() */
+                editor.commit()
                 val intent = Intent(this@MapsActivity, Login::class.java)
                 startActivity(intent)
                 true
@@ -207,7 +204,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val intent2 = Intent(this, AddMarkerActivity::class.java)
                 intent2.putExtra("latitude",lat)
                 intent2.putExtra("longitude", lng)
-                intent2.putExtra("userid",userid)
                 startActivity(intent2)
                 true
             }

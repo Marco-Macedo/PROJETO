@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PROJETO</string>
+    <string name="app_name" translatable="false">PROJETO</string>
     <string name="Edit" translatable="false">Edit</string>
     <string name="Remove" translatable="false">Remove</string>
     <string name="Insert" translatable="false">Insert</string>
@@ -23,16 +23,16 @@
     <string name="Date" translatable="false">Date</string>
     <string name="View_All" translatable="false">View All</string>
     <string name="Remove_All" translatable="false">Remove All</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="Notebook" translatable="false">Notebook</string>
+    <string name="Add_Marker" translatable="false">Add Marker</string>
+    <string name="addnow" translatable="false">Add Now</string>
+    <string name="problemDescription" translatable="false">Problem Description</string>
+    <string name="name" translatable="false">"Name: "</string>
+    <string name="enter" translatable="false">Enter</string>
+    <string name="namelogin" translatable="false">Name</string>
+    <string name="removebyid" translatable="false">Remove by ID</string>
+    <string name="removenow" translatable="false">Remove Now</string>
+    <string name="insertproblemid" translatable="false">Insert problem ID</string>
 
 
 </resources>

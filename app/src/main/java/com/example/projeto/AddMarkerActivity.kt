@@ -1,5 +1,6 @@
 package com.example.projeto
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,7 +26,9 @@ class AddMarkerActivity : AppCompatActivity() {
 
         var latitude =  intent.getStringExtra("latitude")
         var longitude = intent.getStringExtra("longitude")
-        userid = intent.getIntExtra("userid",0)
+
+        var token = getSharedPreferences("id", Context.MODE_PRIVATE)
+        userid = token.getInt("id_login_atual", 0)
 
         findViewById<TextView>(R.id.lat).setText(latitude)
         findViewById<TextView>(R.id.lng).setText(longitude)

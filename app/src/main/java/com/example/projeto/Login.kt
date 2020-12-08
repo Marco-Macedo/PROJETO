@@ -58,14 +58,21 @@ class Login : AppCompatActivity() {
                         intent.putExtra("userid",userid)
 
 
-                    /*    /// GET NAME SHARED PREFERENCES ////
+                        /// GET NAME SHARED PREFERENCES ////
 
                         var token = getSharedPreferences("username", Context.MODE_PRIVATE)
                         var editor = token.edit()
                         editor.putString("username_login_atual",username)
                         editor.commit()
 
-                        //////////////////////////// */
+                        ///////////////////////////////////////
+                        ///////// GET ID SHARED PREFERENCES ////
+
+                        var tokenid = getSharedPreferences("id", Context.MODE_PRIVATE)
+                        var editorid = tokenid.edit()
+                        editorid.putInt("id_login_atual",userid)
+                        editorid.commit()
+
 
                         Toast.makeText(this@Login, "Login efectuado"+ a.id, Toast.LENGTH_SHORT).show()
                         startActivity(intent)
@@ -78,22 +85,18 @@ class Login : AppCompatActivity() {
             }
         })
     }
-/*
+
     override fun onStart() {
         super.onStart()
         var token = getSharedPreferences("username", Context.MODE_PRIVATE)
         if(token.getString("username_login_atual"," ") != " ") {
 
-            var tokenid = getSharedPreferences("id", Context.MODE_PRIVATE)
-            var editorid = tokenid.edit()
-            editorid.putInt("id_login_atual",userid)
-            editorid.commit()
+
             val intent = Intent(this@Login, MapsActivity::class.java)       // ENTRA NA ATIVIDADE
 
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
             startActivity(intent)
         }
-    }*/
-
+    }
 }

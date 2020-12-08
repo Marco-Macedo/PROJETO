@@ -24,5 +24,15 @@
     <string name="Date" translatable="false">Data</string>
     <string name="View_All" translatable="false">Ver Tudo</string>
     <string name="Remove_All" translatable="false">Remover Tudo</string>
+    <string name="Notebook">BLOCO DE NOTAS</string>
+    <string name="Add_Marker">Adicionar Marcador</string>
+    <string name="addnow">Adicionar agora</string>
+    <string name="problemDescription">Descrição do problema</string>
+    <string name="name">"Nome: "</string>
+    <string name="enter">Entrar</string>
+    <string name="namelogin">Nome</string>
+    <string name="removebyid">Remover por ID</string>
+    <string name="removenow">Remover agora</string>
+    <string name="insertproblemid">Inserir o ID do problema</string>
 
 </resources>

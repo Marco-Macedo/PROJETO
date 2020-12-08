@@ -5,41 +5,52 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/title"
+        android:id="@+id/iduser"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:fontFamily="sans-serif-light"
+        android:inputType="textAutoComplete"
+        android:textSize="18sp"
+        />
+    <EditText
+        android:id="@+id/lat"
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:fontFamily="sans-serif-light"
         android:inputType="textAutoComplete"
         android:textSize="18sp"
-        android:hint="@string/Title"
+
         />
 
     <EditText
-        android:id="@+id/notes"
+        android:id="@+id/lng"
         android:layout_width="match_parent"
         android:layout_height="62dp"
         android:fontFamily="sans-serif-light"
         android:inputType="textAutoComplete"
         android:textSize="18sp"
-        android:hint="@string/Note"
+
         />
 
+
+
     <EditText
-        android:id="@+id/date"
+        android:id="@+id/descr"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:fontFamily="sans-serif-light"
-        android:layout_marginBottom="40dp"
         android:inputType="textAutoComplete"
         android:textSize="18sp"
-        android:hint="@string/Date"
+        android:hint="Descrição do problema"
         />
+
 
     <Button
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        android:text="Confirmar Inserção" />
+        android:text="ADICIONAR MARCADOR"
+        android:onClick="addMarker"/>
 
 </LinearLayout>
