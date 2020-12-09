@@ -5,14 +5,23 @@ import android.content.Context
 import android.content.Intent
 import android.content.LocusId
 import android.content.pm.PackageManager
+import android.content.res.Resources
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.location.Geocoder
 import android.location.Location
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
+import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -29,15 +38,18 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_maps.*
 import org.w3c.dom.Text
 import javax.security.auth.callback.Callback
 import retrofit2.Call
 import retrofit2.Response
+import java.io.IOException
 
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), SensorEventListener ,OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var problems: List<problemas>
@@ -67,10 +79,67 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         private const val REQUEST_CHECK_SETTINGS = 2
     }
 
+    // variavel para sensor
+    private var light : Boolean = false
+    var sensor : Sensor? = null
+    var sensorManager : SensorManager? = null
+   // lateinit var demoFab : FloatingActionButton
+
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        try {
+
+            if (event!!.values[0] < 1) {
+                try {
+                    // Customise the styling of the base map using a JSON object defined
+                    // in a raw resource file.
+                    val success = mMap.setMapStyle(
+                            MapStyleOptions.loadRawResourceStyle(
+                                    this, R.raw.mapstyle))
+                    if (!success) {
+                        Log.e("MapsActivity", "Style parsing failed.")
+                    }
+                } catch (e: Resources.NotFoundException) {
+                    Log.e("MapsActivity", "Can't find style. Error: ", e)
+                }
+
+            } else {
+
+                try {
+                    // Customise the styling of the base map using a JSON object defined
+                    // in a raw resource file.
+                    val success = mMap.setMapStyle(
+                            MapStyleOptions.loadRawResourceStyle(
+                                    this, R.raw.mapstylestandard))
+                    if (!success) {
+                        Log.e("MapsActivity", "Style parsing failed.")
+                    }
+                } catch (e: Resources.NotFoundException) {
+                    Log.e("MapsActivity", "Can't find style. Error: ", e)
+                }
+
+            }
+
+        }
+        catch (e : Exception)
+        {
+
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        sensor = sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)        // DEFINE O SENSOR COMO UM SENSOR DE LUZ
+
+
 
         //added to implement distance between two locations
         continenteLat = 41.53678
@@ -104,8 +173,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                                         .position(position)
                                         .snippet("ID do problema: " + problem.id.toString())
                                         .title(problem.descr)
-                                        .anchor(0.5f, 0.5f)
-                                        .zIndex(1.0f)
+
                                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                     }
                 }
@@ -161,14 +229,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        //val barcelos = LatLng(41.5166646, -8.6166642)
-        //mMap.addMarker(MarkerOptions().position(barcelos).title("Marker in Barcelos"))
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(barcelos))
-        /*        mMap.setOnMarkerClickListener {
-              Toast.makeText(this,"Entrei",Toast.LENGTH_SHORT).show()
-              true
-          }*/
         setUpMap()
     }
 
@@ -206,12 +266,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onPause() {    // aplicacao interrompida, parar de receber novas coordenadas ( ocupa processamento, bateria...)
         super.onPause()
+        sensorManager!!.unregisterListener(this)
         fusedLocationClient.removeLocationUpdates(locationCallback)
         Log.d("**** MARCO", "onPause - removeLocationUpdates")
     }
 
     public override fun onResume() {        // ON RESUME EVENT
         super.onResume()
+        sensorManager!!.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
         startLocationUpdates()
         Log.d("**** MARCO", "onResume - startLocationUpdates")
     }
@@ -281,4 +343,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
+
+
 }
